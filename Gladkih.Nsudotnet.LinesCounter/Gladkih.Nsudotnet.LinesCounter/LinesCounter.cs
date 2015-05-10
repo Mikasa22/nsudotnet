@@ -48,14 +48,13 @@ namespace Gladkih.Nsudotnet.LinesCounter
                             }
 
                             isCommentOpen = true;
-                            int endCommentInd = line.IndexOf(comments.EndMultylineComment,
-                                StringComparison.Ordinal);
+                            int endCommentInd = line.IndexOf(comments.EndMultylineComment, StringComparison.Ordinal);
                             if (0 <= endCommentInd)
                             {
-                                isCommentOpen = false; 
-                                if (endCommentInd + 1 < line.Length)
+                                isCommentOpen = false;
+                                if (endCommentInd + comments.EndMultylineComment.Length < line.Length)
                                 {
-                                    line = line.Substring(0, startCommentInd) + line.Substring(endCommentInd + +comments.EndMultylineComment.Length);
+                                    line = line.Substring(0, startCommentInd) + line.Substring(endCommentInd + comments.EndMultylineComment.Length);
                                 }
                                 else
                                 {
@@ -66,6 +65,7 @@ namespace Gladkih.Nsudotnet.LinesCounter
                             else
                             {
                                 line = line.Substring(0, startCommentInd);
+                                break;
                             }
                             
                         }
@@ -75,7 +75,7 @@ namespace Gladkih.Nsudotnet.LinesCounter
                             if (0 <= endCommentInd)
                             {
                                 isCommentOpen = false;
-                                if (endCommentInd + 1 < line.Length)
+                                if (endCommentInd + comments.EndMultylineComment.Length < line.Length)
                                 {
                                     line = line.Substring(endCommentInd + comments.EndMultylineComment.Length);
                                 }
