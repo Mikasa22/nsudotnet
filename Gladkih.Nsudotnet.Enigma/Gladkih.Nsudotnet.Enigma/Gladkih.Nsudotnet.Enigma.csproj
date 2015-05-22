@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cryptographer.cs" />
+    <Compile Include="ICreator.cs" />
     <Compile Include="CryptographicAlgorithmFactory.cs" />
     <Compile Include="JobTypes.cs" />
     <Compile Include="Parser.cs" />
