@@ -31,6 +31,7 @@ namespace Gladkih.Nsudotnet.Calendar
             } while ((int) currentDay.DayOfWeek != 1);
             Console.WriteLine();
 
+            int workingDays = 0;
             currentDay = currentDay.AddDays(-7);
             while (currentDay.Month <= userDate.Month)
             {
@@ -42,9 +43,13 @@ namespace Gladkih.Nsudotnet.Calendar
                     }
                     else
                     {
-                        if (0 == (int)currentDay.DayOfWeek || 6 == (int)currentDay.DayOfWeek)
+                        if (0 == (int) currentDay.DayOfWeek || 6 == (int) currentDay.DayOfWeek)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
+                        }
+                        else
+                        {
+                            workingDays++;
                         }
                         if (userDate == currentDay)
                         {
@@ -62,6 +67,7 @@ namespace Gladkih.Nsudotnet.Calendar
                 } while ((int)currentDay.DayOfWeek != 1);
                 Console.WriteLine();
             }
+            Console.WriteLine("Number of working days in month is {0}", workingDays);
         }
 
     }
